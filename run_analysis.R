@@ -23,3 +23,10 @@ download.file(url, file.path(data_path, "dataFiles.zip"))
 unzip(zipfile = file.path(data_path, "dataFiles.zip"), exdir = "data")
 
 ## Load activity labels + features
+activityLabels <- fread(file.path(data_path, "UCI HAR Dataset/activity_labels.txt")
+                        , col.names = c("classLabels", "activityName"))
+features <- fread(file.path(data_path, "UCI HAR Dataset/features.txt")
+                  , col.names = c("index", "featureNames"))
+featuresWanted <- grep("(mean|std)\\(\\)", features[, featureNames])
+measurements <- features[featuresWanted, featureNames]
+measurements <- gsub('[()]', '', measurements)
