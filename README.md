@@ -53,7 +53,7 @@ Goal | Item | Link to Item
 Analysis R Script |  run_analysis.R |  [R Script Link](https://github.com/mo3tazJ/r-getting-and-cleanning-data-project/blob/main/run_analysis.R "run_analysis.R")
 Tidy Data Set |  Clean Data Set |  [Data Set Link](https://github.com/mo3tazJ/r-getting-and-cleanning-data-project/blob/main/tidyData.txt "tidyData.txt")
 Github Repo | Repo |  [Repo Link](https://github.com/mo3tazJ/r-getting-and-cleanning-data-project/tree/main "Click to go to Repo")
-Cookbook | CodeBook.md |  [Repo Link](https://github.com/mGalarnyk/datasciencecoursera/blob/master/3_Getting_and_Cleaning_Data/projects/CodeBook.md "CodeBook.md")
+Cookbook | CodeBook.md |  [Repo Link](https://github.com/mo3tazJ/r-getting-and-cleanning-data-project/blob/main/CodeBook.md "CodeBook.md")
 README | ReadingItNow |  [Repo Link](https://github.com/mo3tazJ/r-getting-and-cleanning-data-project/blob/main/README.md "README.md")
 
 
