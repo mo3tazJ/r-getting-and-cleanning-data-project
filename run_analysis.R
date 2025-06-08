@@ -41,3 +41,12 @@ trainSubjects <- fread(file.path(data_path, "UCI HAR Dataset/train/subject_train
                        , col.names = c("SubjectNum"))
 train <- cbind(trainSubjects, trainActivities, train)
 
+# Loading test dataset
+test <- fread(file.path(data_path, "UCI HAR Dataset/test/X_test.txt"))[, featuresWanted, with = FALSE]
+data.table::setnames(test, colnames(test), measurements)
+testActivities <- fread(file.path(data_path, "UCI HAR Dataset/test/Y_test.txt")
+                        , col.names = c("Activity"))
+testSubjects <- fread(file.path(data_path, "UCI HAR Dataset/test/subject_test.txt")
+                      , col.names = c("SubjectNum"))
+test <- cbind(testSubjects, testActivities, test)
+
