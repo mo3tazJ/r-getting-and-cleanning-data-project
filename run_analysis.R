@@ -30,3 +30,14 @@ features <- fread(file.path(data_path, "UCI HAR Dataset/features.txt")
 featuresWanted <- grep("(mean|std)\\(\\)", features[, featureNames])
 measurements <- features[featuresWanted, featureNames]
 measurements <- gsub('[()]', '', measurements)
+
+
+# Loading train dataset
+train <- fread(file.path(data_path, "UCI HAR Dataset/train/X_train.txt"))[, featuresWanted, with = FALSE]
+data.table::setnames(train, colnames(train), measurements)
+trainActivities <- fread(file.path(data_path, "UCI HAR Dataset/train/Y_train.txt")
+                         , col.names = c("Activity"))
+trainSubjects <- fread(file.path(data_path, "UCI HAR Dataset/train/subject_train.txt")
+                       , col.names = c("SubjectNum"))
+train <- cbind(trainSubjects, trainActivities, train)
+
