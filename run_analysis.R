@@ -27,6 +27,7 @@ activityLabels <- fread(file.path(data_path, "UCI HAR Dataset/activity_labels.tx
                         , col.names = c("classLabels", "activityName"))
 features <- fread(file.path(data_path, "UCI HAR Dataset/features.txt")
                   , col.names = c("index", "featureNames"))
+# Extracts only the measurements on the mean and standard deviation for each measurement. 
 featuresWanted <- grep("(mean|std)\\(\\)", features[, featureNames])
 measurements <- features[featuresWanted, featureNames]
 measurements <- gsub('[()]', '', measurements)
@@ -50,20 +51,24 @@ testSubjects <- fread(file.path(data_path, "UCI HAR Dataset/test/subject_test.tx
                       , col.names = c("SubjectNum"))
 test <- cbind(testSubjects, testActivities, test)
 
-# merging train and test datasets
+## Merges the training and the test sets to create one data set.
 combined <- rbind(train, test)
 
-# Converting classLabels of Activity Column to activityNames
+## Appropriately labels the data set with descriptive variable names.
+# Uses descriptive activity names to name the activities in the data set
 combined[["Activity"]] <- factor(combined[, Activity]
                                  , levels = activityLabels[["classLabels"]]
                                  , labels = activityLabels[["activityName"]])
 
-# Converting SubjectNum of a factor variable
+# Converting SubjectNum to a factor variable
 combined[["SubjectNum"]] <- as.factor(combined[, SubjectNum])
 
 # Reshaping the data frame
 combined <- reshape2::melt(data = combined, id = c("SubjectNum", "Activity"))
-combined <- reshape2::dcast(data = combined, SubjectNum + Activity ~ variable, fun.aggregate = mean)
+# creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+tidydataset <- reshape2::dcast(data = combined, SubjectNum + Activity ~ variable, fun.aggregate = mean)
 
 # Exporting tidy dataset
-data.table::fwrite(x = combined, file = "tidyData.txt", quote = FALSE)
+data.table::fwrite(x = tidydataset, file = "tidyData.txt", quote = FALSE)
+write.csv(x = tidydataset, file = "tidyData.csv")
+write.csv2(x = tidydataset, file = "tidyData2.csv")
