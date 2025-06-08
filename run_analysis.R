@@ -50,3 +50,5 @@ testSubjects <- fread(file.path(data_path, "UCI HAR Dataset/test/subject_test.tx
                       , col.names = c("SubjectNum"))
 test <- cbind(testSubjects, testActivities, test)
 
+# merging train and test datasets
+combined <- rbind(train, test)
