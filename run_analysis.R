@@ -52,3 +52,16 @@ test <- cbind(testSubjects, testActivities, test)
 
 # merging train and test datasets
 combined <- rbind(train, test)
+
+# Converting classLabels of Activity Column to activityNames
+combined[["Activity"]] <- factor(combined[, Activity]
+                                 , levels = activityLabels[["classLabels"]]
+                                 , labels = activityLabels[["activityName"]])
+
+# Converting SubjectNum of a factor variable
+combined[["SubjectNum"]] <- as.factor(combined[, SubjectNum])
+
+# Reshaping the data frame
+combined <- reshape2::melt(data = combined, id = c("SubjectNum", "Activity"))
+combined <- reshape2::dcast(data = combined, SubjectNum + Activity ~ variable, fun.aggregate = mean)
+
