@@ -2,7 +2,7 @@
 
 
 ### Description
-Additional information about the variables, data and transformations used in the course project for the Johns Hopkins Getting and Cleaning Data course.
+This Code Book provide additional information about the variables, data and transformations used in the "Getting and Cleaning Data course project".
 
 ### Source Data
 Data + Description can be found here [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
@@ -27,3 +27,14 @@ For each record in the dataset it is provided:
 - A 561-feature vector with time and frequency domain variables. 
 - Its activity label. 
 - An identifier of the subject who carried out the experiment.
+
+### Data Transformation
+
+The original dataset from the UCI HAR Dataset was processed as follows:
+
+1. Merged the train and test datasets.
+2. Extracted measurements on mean and standard deviation.
+3. Applied descriptive activity names.
+4. Cleaned and labeled variable names.
+5. Created a tidy dataset with the average of each variable for each subject and activity.
+
