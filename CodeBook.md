@@ -38,3 +38,10 @@ The original dataset from the UCI HAR Dataset was processed as follows:
 4. Cleaned and labeled variable names.
 5. Created a tidy dataset with the average of each variable for each subject and activity.
 
+### Note:
+
+In the Code file `run_analysis.R` you wil find a step by step information using comments to get more clear uderstanding
+Good Luck.
+
+ENG. Moutaz Jnoup
+2025
