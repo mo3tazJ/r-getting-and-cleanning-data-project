@@ -41,7 +41,9 @@ The original dataset from the UCI HAR Dataset was processed as follows:
 ### Note:
 
 In the Code file `run_analysis.R` you wil find a step by step information using comments to get more clear uderstanding
+
 Good Luck.
 
 ENG. Moutaz Jnoup
+
 2025
